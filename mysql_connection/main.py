@@ -7,7 +7,6 @@ class MysqlDb:
     """
     host = ''
     db_name = ''
-    table_name = ''
 
     def __init__(self, host, db_name):
         self.host = host
@@ -17,6 +16,8 @@ class MysqlDb:
         db_conn = DbOperations()
         db_conn.db_connect(self.host, self.db_name)
         db_conn.show_db()
+        db_conn.show_tables()
+        db_conn.close_connection()
 
 
 if __name__ == "__main__":
