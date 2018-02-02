@@ -35,3 +35,11 @@ class DbOperations:
     def close_connection(self):
         DbOperations.db_conn.close()
         print("\nConnection cloased :\n")
+
+    def show_data(self, table_name):
+        cur = DbOperations.db_conn.cursor()
+        select_query = "select * from " + table_name
+        cur.execute(select_query)
+        print("\nTable data :\n")
+        for row in cur.fetchall():
+            print(row)
